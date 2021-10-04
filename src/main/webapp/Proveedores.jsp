@@ -51,20 +51,7 @@
 		</table>
 			
 	</form>
-		<hr>
-		<h3>Volver al Menú Principal</h3>
-		<table align="center">
-			<tr>
-				<td><a href="" class="button">Reportes</a>
-  					<a href="" class="button">Productos</a>
-  					<a href="" class="button">Ventas</a>
-  					<a href="" class="button">Proveedores</a>
-  					<a href="" class="button">Clientes</a>
-  					<a href="" class="button">Usuarios</a>
-  				</td>
-			</tr>
-		</table>
-		
+				
 	</div>
 
 </body>

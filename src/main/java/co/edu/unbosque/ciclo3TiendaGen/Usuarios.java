@@ -2,16 +2,16 @@ package co.edu.unbosque.ciclo3TiendaGen;
 
 public class Usuarios {
 
-	private long cedula_usuario;
+	private Long cedula_usuario;
 	private String email_usuario;
 	private String nombre_usuario;
 	private String usuario;
 	private String password_usuario;
 	
-	public long getCedula_usuario() {
+	public Long getCedula_usuario() {
 		return cedula_usuario;
 	}
-	public void setCedula_usuario(long cedula_usuario) {
+	public void setCedula_usuario(Long cedula_usuario) {
 		this.cedula_usuario = cedula_usuario;
 	}
 	public String getEmail_usuario() {

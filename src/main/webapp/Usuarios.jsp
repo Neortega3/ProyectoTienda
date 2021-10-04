@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ page import="co.edu.unbosque.ciclo3TiendaGen.Usuarios"%>
+<%@ page import="java.util.ArrayList"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,64 +13,77 @@
 </head>
 <body>
 
-<h1 align="center">Usuarios</h1>
-
-<h6 align="center"> Hoy es:
-<%= new java.util.Date() %>
-</h6>
-
 	<div class="menubox2">
 	<h2>Gestión de usuarios</h2>
 	<hr>
-	<form method="get" action="./DemoServlet">	
+	<form method="get" action="Controlador">
+	
+		<input type="hidden" name="menu" value="Usuarios">	
 		<table align="center">
 		<tr> 
 			<td colspan=2><label id="icon" for="name"><img src="./images/driver-license.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="cedula_usuario" id="name" placeholder="Cédula Usuario" required/></td>
+  			<input type="text" name="cedula_usuario" placeholder="Cédula Usuario" value="${usuarioSeleccionado.getCedula_usuario()}" required/></td>
   		
 			<td colspan=2><label id="icon" for="name"><img src="./images/user.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="usuario" id="name" placeholder="Usuario" required/></td>
+  			<input type="text" name="usuario" placeholder="Usuario" value="${usuarioSeleccionado.getUsuario()}" required/></td>
 		</tr>
 		
 		<tr> 
 			<td colspan=2><label id="icon" for="name"><img src="./images/id-card.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="nombre_usuario" id="name" placeholder="Nombre Completo" required/></td>
+  			<input type="text" name="nombre_usuario" placeholder="Nombre Completo" value="${usuarioSeleccionado.getNombre_usuario()}" required/></td>
 			
 			<td colspan=2><label id="icon" for="name"><img src="./images/padlock.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="contraseña_usuario" id="name" placeholder="Contraseña" required/></td>
+  			<input type="text" name="contraseña_usuario" placeholder="Contraseña" value="${usuarioSeleccionado.getPassword_usuario()}" required/></td>
 		</tr>
 		
 		<tr> 
 			<td colspan=2><label id="icon" for="name"><img src="./images/mail.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="email_usuario" id="name" placeholder="Email" required/></td>
+  			<input type="text" name="email_usuario" placeholder="Email" value="${usuarioSeleccionado.getEmail_usuario()}" required/></td>
 		</tr>
 		
 		<tr>
-			<td><a href="" class="button">Crear</a></td>
-  			<td><a href="" class="button">Consultar</a></td>
-  			<td><a href="" class="button">Actualizar</a></td>
-  			<td><a href="" class="button">Borrar</a></td>
-  			<td><a href="" class="button">Listar Usu.</a></td>
+			<td><input type="submit" class="button" name="accion" value="Crear"></td>
+			<td><input type="submit" class="button" name="accion" value="Actualizar"></td>
 		</tr>	
 		
 		</table>
 			
 	</form>
-		<hr>
-		<h3>Volver al Menú Principal</h3>
-		<table align="center">
+	
+	<div>
+    <table align="center">
+        <thead>
+            <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Password</th>
+           </tr>
+        </thead>
+        <tbody>
+            <% ArrayList<Usuarios> lista= (ArrayList<Usuarios>) request.getAttribute("lista");
+			for (Usuarios usuario:lista){
+			%>
 			<tr>
-				<td><a href="" class="button">Reportes</a>
-  					<a href="" class="button">Productos</a>
-  					<a href="" class="button">Ventas</a>
-  					<a href="" class="button">Proveedores</a>
-  					<a href="" class="button">Clientes</a>
-  					<a href="" class="button">Usuarios</a>
-  				</td>
-			</tr>
-		</table>
-		
+				<td><%=usuario.getCedula_usuario()%></td>
+				<td><%=usuario.getNombre_usuario()%></td>
+				<td><%=usuario.getEmail_usuario()%></td>
+				<td><%=usuario.getUsuario()%></td>
+				<td><%=usuario.getPassword_usuario()%></td>
+				<td> 
+	               <a class="btn btn-warning" href="Controlador?menu=Usuarios&accion=Cargar&id=<%=usuario.getCedula_usuario()%>">Editar</a>
+	               <a class="btn btn-danger" href="Controlador?menu=Usuarios&accion=Eliminar&id=<%=usuario.getCedula_usuario()%>">Eliminar</a>
+            	</td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+</div>		
 	</div>
-
+	
+	
+	
+	
 </body>
 </html>
