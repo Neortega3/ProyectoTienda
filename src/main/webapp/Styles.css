@@ -43,7 +43,7 @@ select {
 }
 
 p {
-  font-size: 12px;
+  font-size: 15px;
   width: 150px;
   display: inline-block;
   margin-left: 18px;
@@ -112,6 +112,7 @@ input[type=text],input[type=password]{
 
 input[type=password]{
   margin-bottom: 10px;
+
 }
 
 #icon {
@@ -135,8 +136,8 @@ input[type=submit]{
   font-size: 14px;
   font-weight: 600;
   color: white;
-  padding: 6px 25px 0px 20px;
-  margin: 10px 15px 20px 15px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   display: inline-block;
   float: left;
   text-decoration: none;
@@ -164,7 +165,7 @@ input:hover[type=submit] {
 
 a.button {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: white;
   padding: 6px 25px 0px 20px;
   margin: 10px 8px 20px 0px;
@@ -211,7 +212,21 @@ a.button:hover {
 .menubox2 {
   margin: 5px auto;
   width: 905px; 
-  height: 550px; 
+  height: 337px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+.menubox3 {
+  margin: 5px auto;
+  width: 905px; 
+  height: 637px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -224,7 +239,7 @@ a.button:hover {
 
 .embed-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 36.25%;
     height: 0;
     overflow: hidden;
 }
@@ -235,4 +250,13 @@ a.button:hover {
     left: 0;
     width: 100%;
     height: 100%;
+    border:0px;
+}
+
+.padre {
+  margin: 1rem;
+  padding: 1rem;
+  /* IMPORTANTE */
+  text-align: center;
+  justify-content: center;
 }

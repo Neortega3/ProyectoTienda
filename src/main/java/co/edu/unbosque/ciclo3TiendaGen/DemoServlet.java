@@ -11,16 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class DemoServlet
- */
 @WebServlet("/DemoServlet")
 public class DemoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DemoServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -39,6 +33,7 @@ public class DemoServlet extends HttpServlet {
 					request.setAttribute("usuario", usuario);
 					request.getRequestDispatcher("/Menu.jsp").forward(request, response);
 					respuesta = 1;
+					
 				}
 
 			}

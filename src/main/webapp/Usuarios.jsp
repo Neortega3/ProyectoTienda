@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page import="co.edu.unbosque.ciclo3TiendaGen.Usuarios"%>
+<%@ page import="co.edu.unbosque.ciclo3TiendaGen.TestJSON"%>
 <%@ page import="java.util.ArrayList"%>
    
 <!DOCTYPE html>
@@ -9,6 +12,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Styles.css">
+<link rel="stylesheet" type="text/css" href="StylesTablas.css">
 <title>Usuarios</title>
 </head>
 <body>
@@ -19,7 +23,7 @@
 	<form method="get" action="Controlador">
 	
 		<input type="hidden" name="menu" value="Usuarios">	
-		<table align="center">
+		<table id="table1" align="center">
 		<tr> 
 			<td colspan=2><label id="icon" for="name"><img src="./images/driver-license.png" width="17px" height="17px"><i class="icon-user"></i></label>
   			<input type="text" name="cedula_usuario" placeholder="Cédula Usuario" value="${usuarioSeleccionado.getCedula_usuario()}" required/></td>
@@ -33,7 +37,7 @@
   			<input type="text" name="nombre_usuario" placeholder="Nombre Completo" value="${usuarioSeleccionado.getNombre_usuario()}" required/></td>
 			
 			<td colspan=2><label id="icon" for="name"><img src="./images/padlock.png" width="17px" height="17px"><i class="icon-user"></i></label>
-  			<input type="text" name="contraseña_usuario" placeholder="Contraseña" value="${usuarioSeleccionado.getPassword_usuario()}" required/></td>
+  			<input type="password" name="password_usuario" placeholder="Contraseña" value="${usuarioSeleccionado.getPassword_usuario()}" required/></td>
 		</tr>
 		
 		<tr> 
@@ -42,48 +46,15 @@
 		</tr>
 		
 		<tr>
-			<td><input type="submit" class="button" name="accion" value="Crear"></td>
-			<td><input type="submit" class="button" name="accion" value="Actualizar"></td>
+			<td style="padding-top:10px;"><input type="submit" class="button" name="accion" value="Crear"></td>
+			<td style="padding-top:10px;"><input type="submit" class="button" name="accion" value="Actualizar"></td>
 		</tr>	
 		
 		</table>
 			
 	</form>
-	
-	<div>
-    <table align="center">
-        <thead>
-            <tr>
-                <th scope="col">Cedula</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Email</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Password</th>
-           </tr>
-        </thead>
-        <tbody>
-            <% ArrayList<Usuarios> lista= (ArrayList<Usuarios>) request.getAttribute("lista");
-			for (Usuarios usuario:lista){
-			%>
-			<tr>
-				<td><%=usuario.getCedula_usuario()%></td>
-				<td><%=usuario.getNombre_usuario()%></td>
-				<td><%=usuario.getEmail_usuario()%></td>
-				<td><%=usuario.getUsuario()%></td>
-				<td><%=usuario.getPassword_usuario()%></td>
-				<td> 
-	               <a class="btn btn-warning" href="Controlador?menu=Usuarios&accion=Cargar&id=<%=usuario.getCedula_usuario()%>">Editar</a>
-	               <a class="btn btn-danger" href="Controlador?menu=Usuarios&accion=Eliminar&id=<%=usuario.getCedula_usuario()%>">Eliminar</a>
-            	</td>
-            </tr>
-            <%}%>
-        </tbody>
-    </table>
-</div>		
+		
 	</div>
-	
-	
-	
 	
 </body>
 </html>

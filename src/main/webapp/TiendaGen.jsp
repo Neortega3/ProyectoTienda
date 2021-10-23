@@ -26,7 +26,7 @@
   		<input type="text" name="nombre" placeholder="Nombre"/>
 		<label id="icon" for="name"><img src="./images/padlock.png" width="17px" height="17px"><i class="icon-shield"></i></label>
   		<input type="password" name="password" placeholder="Contraseña"/>
-  		<input type="submit" name="accion" value="Enviar" class="button">
+  		<p><input type="submit" name="accion" value="Enviar" class="button"></p>
 	</form>
 	</div>
 	

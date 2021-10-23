@@ -17,7 +17,8 @@ import org.json.simple.parser.ParseException;
 
 public class TestJSON {
 	private static URL url;
-	private static String sitio = "http://localhost:5000/";
+	//private static String sitio = "http://localhost:5000/";
+	private static String sitio = "http://localhost:8080/BackTiendaBarrio-0.0.1-SNAPSHOT/";
 
 	//agregar informacion a la tabla usuario
 	
@@ -79,10 +80,13 @@ public class TestJSON {
 		http.setRequestProperty("Accept", "application/json");
 		http.setRequestProperty("Content-Type", "application/json");
 
-		String data = "{" + "\"cedula_usuario\":\"" + String.valueOf(usuario.getCedula_usuario())
-				+ "\",\"email_usuario\": \"" + usuario.getEmail_usuario() + "\",\"nombre_usuario\": \""
-				+ usuario.getNombre_usuario() + "\",\"password_usuario\":\"" + usuario.getPassword_usuario() + "\",\"usuario\":\""
-				+ usuario.getUsuario() + "\"}";
+		String data = "{" 
+				+ "\"cedula_usuario\":\"" + String.valueOf(usuario.getCedula_usuario())
+				+ "\",\"email_usuario\": \"" + usuario.getEmail_usuario() 
+				+ "\",\"nombre_usuario\": \"" + usuario.getNombre_usuario() 
+				+ "\",\"usuario\":\"" + usuario.getUsuario() 
+				+ "\",\"password_usuario\":\"" + usuario.getPassword_usuario()
+				+ "\"}";
 		byte[] out = data.getBytes(StandardCharsets.UTF_8);
 		OutputStream stream = http.getOutputStream();
 		stream.write(out);
